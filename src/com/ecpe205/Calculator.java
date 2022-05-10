@@ -1,15 +1,67 @@
 package com.ecpe205;
 
 public class Calculator {
-    public double sum( double a, double b ) {
-        return a + b;
+    public double power( double a, double b ) {
+        double pow = 1;
+        for(int i=1;i<=b;i++){
+            pow = pow*a;
+        }
+        return pow;
     }
-    public boolean isEven (int value) {
-        return value % 2 == 0;
+    public double factorial(double value) {
+        int fact;
+        if(value>=0){
+        fact=1;
+        for(int i=1;i<=value;i++){
+            fact=fact*i;
+        }
+
+        return fact;
+
+        }
+        else{
+        fact=-1;
+        for(int i=-1;i>=value;i--){
+           fact=fact*i;
+        }
+        if (fact>0) {
+            fact = fact * -1;
+        }
+        return fact;
+        }
     }
-    public boolean isOdd (int value) {
-        return value % 2 == 1;
+    public boolean Palindrome (String word) {
+        int i = 0, j = word.length() - 1;
+
+        // While there are characters to compare
+        while (i < j) {
+
+            // If there is a mismatch
+            if (word.charAt(i) != word.charAt(j))
+                return false;
+
+            i++;
+            j--;
+        }
+
+        return  true;
     }
+
+    public int[] Sort(int[] arr) {
+        int temp;
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
 
     //create a method that computes base x power of y
     //use parameterizedTest methodsource - 5 sets to test
